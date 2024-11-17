@@ -98,6 +98,30 @@ nav ul .nav-buttons .btn2:hover {
   color: #232e26;
 }
 
+.bars {
+  width: 20px;
+  display: none;
+  gap: 4px;
+  grid-template-columns: 1fr;
+  cursor: pointer;
+}
+.bars .line {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 1s ease-in-out;
+}
+
+.active-bars .line:nth-child(2) {
+  display: none;
+}
+.active-bars .line:nth-child(1){
+  transform: rotate(50deg) translateX(4px);
+}
+.active-bars .line:nth-child(3){
+  transform: rotate(-50deg) translateX(4px);
+}
+
 /* hero */
 .hero {
   height: 574px;
@@ -343,6 +367,9 @@ footer hr {
 
 /* phone */
 @media screen and (max-width: 500px) {
+  nav {
+    justify-content: space-between;
+  }
   nav ul {
     position: fixed;
     top: 0;
@@ -351,13 +378,17 @@ footer hr {
     background-color: #d9efde;
     padding: 20px;
     width: 80%;
-    transition: all 0.4s ease-in-out;
+    transition: all 1s ease-in-out;
   }
-  nav ul.active {
+  nav .active-list {
     right: 0;
   }
   nav ul .nav-buttons {
     flex-direction: column;
+  }
+  nav .bars {
+    display: grid;
+    z-index: 2;
   }
   main {
     padding: 20px;
